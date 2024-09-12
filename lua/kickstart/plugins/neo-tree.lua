@@ -11,8 +11,21 @@ return {
   },
   cmd = 'Neotree',
   keys = {
-    { '\\', ':Neotree reveal<CR>', desc = 'NeoTree reveal', silent = true },
+    { '<leader>e', ':Neotree reveal<CR>', desc = 'NeoTree reveal', silent = true },
+    { '<leader>h', ':Neotree close<CR>', desc = 'NeoTree close', silent = true },
   },
+  config = function()
+    require('neo-tree').setup {
+      event_handlers = {
+        {
+          event = 'file_open_requested',
+          handler = function()
+            require('neo-tree.command').execute { action = 'close' }
+          end,
+        },
+      },
+    }
+  end,
   opts = {
     filesystem = {
       window = {
