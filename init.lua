@@ -723,7 +723,7 @@ require('lazy').setup({
       formatters_by_ft = {
         lua = { 'stylua' },
         -- Conform can also run multiple formatters sequentially
-        python = { "black", },
+        python = { 'black' },
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
         -- javascript = { "prettierd", "prettier", stop_after_first = true },
@@ -848,14 +848,43 @@ require('lazy').setup({
     end,
   },
 
-  { -- ColorScheme
-    'shaunsingh/nord.nvim',
+  -- Nord colorscheme
+  -- {
+  --   'shaunsingh/nord.nvim',
+  --   priority = 1000,
+  --   init = function()
+  --     vim.cmd.colorscheme 'nord'
+  --     vim.cmd.hi 'Comment gui=none'
+  --   end,
+  -- },
+  -- lua/plugins/rose-pine.lua
+  -- Rose-pine colorscheme
+  -- {
+  --   'rose-pine/neovim',
+  --   name = 'rose-pine',
+  --   config = function()
+  --     vim.cmd 'colorscheme rose-pine'
+  --   end,
+  -- },
+  -- {
+  -- Oldworld colorscheme
+  {
+    'dgox16/oldworld.nvim',
+    lazy = false,
     priority = 1000,
-    init = function()
-      vim.cmd.colorscheme 'nord'
+    config = function()
+      vim.cmd.colorscheme 'oldworld'
       vim.cmd.hi 'Comment gui=none'
     end,
   },
+  -- Rasmus colorscheme
+  -- {
+  --   'kvrohit/rasmus.nvim',
+  --   priority = 1000,
+  --   config = function()
+  --     vim.cmd [[colorscheme rasmus]]
+  --   end,
+  -- },
 
   -- Highlight todo, notes, etc in comments
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
