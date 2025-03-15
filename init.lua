@@ -658,6 +658,7 @@ require('lazy').setup({
       local servers = {
         pyright = {},
         jdtls = {},
+        jsonls = {},
         clojure_lsp = {},
         bashls = {},
         ts_ls = {},
@@ -876,48 +877,22 @@ require('lazy').setup({
     end,
   },
 
-  -- Nord colorscheme
-  -- {
-  --   'shaunsingh/nord.nvim',
-  --   priority = 1000,
-  --   init = function()
-  --     vim.cmd.colorscheme 'nord'
-  --     vim.cmd.hi 'Comment gui=none'
-  --   end,
-  -- },
-  -- lua/plugins/rose-pine.lua
-  -- Rose-pine colorscheme
-  -- {
-  --   'rose-pine/neovim',
-  --   name = 'rose-pine',
-  --   config = function()
-  --     vim.cmd 'colorscheme rose-pine'
-  --   end,
-  -- },
-  -- {
-  -- Oldworld colorscheme
-  -- {
-  --   'dgox16/oldworld.nvim',
-  --   lazy = false,
-  --   priority = 1000,
-  --   config = function()
-  --     vim.cmd.colorscheme 'oldworld'
-  --     vim.cmd.hi 'Comment gui=none'
-  --   end,
-  -- },
-  -- Rasmus colorscheme
-  -- {
-  --   'kvrohit/rasmus.nvim',
-  --   priority = 1000,
-  --   config = function()
-  --     vim.cmd [[colorscheme rasmus]]
-  --   end,
-  -- },
-  {
-    'doums/darcula',
-    priority = 1000,
-    config = function()
-      vim.cmd [[colorscheme darcula]]
+  { -- You can easily change to a different colorscheme.
+    -- Change the name of the colorscheme plugin below, and then
+    -- change the command in the config to whatever the name of that colorscheme is.
+    --
+    -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
+    'luisiacc/gruvbox-baby',
+    priority = 1000, -- Make sure to load this before all the other start plugins.
+    init = function()
+      -- Load the colorscheme here.
+      -- Like many other themes, this one has different styles, and you could load
+      -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
+      vim.o.background = 'dark' -- or "light" for light mode
+      vim.cmd.colorscheme 'gruvbox-baby'
+
+      -- You can configure highlights by doing something like:
+      vim.cmd.hi 'Comment gui=none'
     end,
   },
 
@@ -970,6 +945,7 @@ require('lazy').setup({
       ensure_installed = {
         -- 'java'
         'bash',
+        'json',
         'typescript',
         'python',
         'clojure',
@@ -1020,6 +996,7 @@ require('lazy').setup({
   require 'custom.plugins.copilot',
   require 'custom.plugins.session',
   require 'custom.plugins.conjure',
+  require 'custom.plugins.lazygit',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
