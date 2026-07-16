@@ -942,7 +942,6 @@ require('lazy').setup({
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
     opts = {
       ensure_installed = {
-        'java',
         'bash',
         'json',
         'typescript',
