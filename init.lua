@@ -658,7 +658,6 @@ require('lazy').setup({
       local servers = {
         pyright = {},
         jsonls = {},
-        clojure_lsp = {},
         bashls = {},
         ts_ls = {},
         -- rust_analyzer = {},
@@ -946,7 +945,6 @@ require('lazy').setup({
         'json',
         'typescript',
         'python',
-        'clojure',
         'diff',
         'html',
         'lua',
