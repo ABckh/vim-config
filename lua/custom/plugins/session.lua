@@ -1,21 +1,8 @@
-return {
+vim.pack.add { 'https://github.com/folke/persistence.nvim' }
+local persistence = require 'persistence'
+persistence.setup {}
 
-  -- Session management. This saves your session in the background,
-  -- keeping track of open buffers, window arrangement, and more.
-  -- You can restore sessions when returning through the dashboard.
-  {
-    "folke/persistence.nvim",
-    event = "BufReadPre",
-    opts = {},
-    -- stylua: ignore
-    keys = {
-      { "<leader>qs", function() require("persistence").load() end, desc = "Restore Session" },
-      { "<leader>qS", function() require("persistence").select() end,desc = "Select Session" },
-      { "<leader>ql", function() require("persistence").load({ last = true }) end, desc = "Restore Last Session" },
-      { "<leader>qd", function() require("persistence").stop() end, desc = "Don't Save Current Session" },
-    },
-  },
-
-  -- library used by other plugins
-  { "nvim-lua/plenary.nvim", lazy = true },
-}
+vim.keymap.set('n', '<leader>qs', function() persistence.load() end, { desc = 'Restore session' })
+vim.keymap.set('n', '<leader>qS', function() persistence.select() end, { desc = 'Select session' })
+vim.keymap.set('n', '<leader>ql', function() persistence.load { last = true } end, { desc = 'Restore last session' })
+vim.keymap.set('n', '<leader>qd', function() persistence.stop() end, { desc = 'Stop saving the session' })

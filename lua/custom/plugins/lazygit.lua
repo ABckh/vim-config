@@ -1,21 +1,3 @@
--- nvim v0.8.0
-return {
-  'kdheepak/lazygit.nvim',
-  lazy = false,
-  cmd = {
-    'LazyGit',
-    'LazyGitConfig',
-    'LazyGitCurrentFile',
-    'LazyGitFilter',
-    'LazyGitFilterCurrentFile',
-  },
-  -- optional for floating window border decoration
-  dependencies = {
-    'nvim-telescope/telescope.nvim',
-    'nvim-lua/plenary.nvim',
-  },
-  config = function()
-    require('telescope').load_extension 'lazygit'
-    vim.api.nvim_set_keymap('n', '<leader>gg', ':LazyGit<CR>', { noremap = true, silent = true })
-  end,
-}
+vim.pack.add { 'https://github.com/kdheepak/lazygit.nvim' }
+require('telescope').load_extension 'lazygit'
+vim.keymap.set('n', '<leader>gg', '<Cmd>LazyGit<CR>', { desc = 'Open LazyGit', silent = true })
