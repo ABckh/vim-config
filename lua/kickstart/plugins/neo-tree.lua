@@ -12,27 +12,8 @@ return {
   cmd = 'Neotree',
   keys = {
     { '<leader>e', ':Neotree reveal<CR>', desc = 'NeoTree reveal', silent = true },
-    { '<leader>h', ':Neotree close<CR>', desc = 'NeoTree close', silent = true },
+    { '<leader>E', ':Neotree close<CR>', desc = 'NeoTree close', silent = true },
   },
-  init = function()
-    -- close neo-tree before closing, so session would not restore it
-    vim.api.nvim_create_autocmd('VimLeavePre', {
-      command = ':Neotree close',
-    })
-  end,
-  -- neotree auto close
-  -- config = function()
-  --   require('neo-tree').setup {
-  --     event_handlers = {
-  --       {
-  --         event = 'file_open_requested',
-  --         handler = function()
-  --           require('neo-tree.command').execute { action = 'close' }
-  --         end,
-  --       },
-  --     },
-  --   }
-  -- end,
   opts = {
     filesystem = {
       group_empty_dirs = true,
