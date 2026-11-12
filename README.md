@@ -2,7 +2,6 @@ My neovim config based on [kickstart-nvim](https://github.com/nvim-lua/kickstart
 
 Included languages:
 * python
-* clojure
 * typescript
 * bash
 
